@@ -185,6 +185,12 @@ c =3
 c **=a
 print('9_c的值为：',c)  #输出赋值冥次方，**
 
+#python位运算符   按照二进制计算
+#python逻辑运算符  and、or、not
+#python成员运算符   in、not in
+#python身份运算符  is、is not
+
+
 
 
 
