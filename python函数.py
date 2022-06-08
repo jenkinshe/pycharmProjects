@@ -58,12 +58,25 @@ print(sum(22,12))
 #定义在函数内部的变量拥有一个局部作用域，定义在函数外的拥有全局作用域。
 #局部变量只能在其被声明的函数内部访问，而全局变量可以在整个程序范围内访问
 total=11
-def sum1(arg1,arg2):
+def sum1_a(arg1,arg2):
     '两个参数相加'
     sum1=arg1+arg2
     print('函数内是局部变量:',sum1)
-    return 0
+    return '结束'
 print('函数外的局部变量:',total)      #全局变量
-print('函数内的局部变量:',sum1(1,2))  #局部变量
+print(sum1_a(1,2))                 #局部变量
+print(sum1_a(1,3))                 #局部变量
+sum1_a(2,6)
+
+
+
+# import 函数练习实例     #从同一文件夹下导入另一py文件
+# from 函数练习实例 import *   #从同一文件夹下导入另一py文件‘函数练习实例’
+# 函数练习实例.say_hello()    #调用函数练习实例py文件下的函数say_hello
+# 函数练习实例.poor_2_poor(9,6)      #调用函数练习实例py文件下的函数poor_2_poor
+# sum_3_sum()                #调用函数练习实例py文件下的函数sum_3_sum
+# shang_1_shang()            #调用函数练习实例py文件下的函数shang_1_shang,参数是死的所以这里不能传参数
+# take_1_take(1211,222)      #调用take_1_take函数并传入参数
+# sum_2_sum()
 
 

@@ -57,3 +57,22 @@ num = 3
 if num == 3: print('3');print('2') #后面可以在同一行输出print
 
 # 更改数据增加 
+
+# 嵌套if
+b = 22
+if b < 100:
+    print('b小于100')
+    if b < 66 :
+        print('b也小于66')
+        if b < 12 :
+            print('b也小于12')
+        else:
+            print('b大于等于12')
+
+
+# pass语句  if 语句不能为空，但是如果您处于某种原因写了无内容的 if 语句，请使用 pass 语句来避免错误。
+a = 20
+b = 22
+if a < b:
+    pass
+

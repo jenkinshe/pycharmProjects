@@ -78,7 +78,39 @@ print(list7)
 
 
 
+#两表的追加
+list8 = ["a", "b" , "c"]
+list9 = [1, 2, 3]
+for x in list9:     #遍历list9
+    list8.append(x) #将遍历中的值依次添加到list8中
+print(list8)
+#若列表中无元素则加到列表中
+list10=['fruit','banana','apple']
+if 'orange' in list10:
+    print('"orange"在列表10中')
+else:
+    list10.append('orange')
+print(list10)
+#判断列表中元素是否在另一列表中，若不在另一列表则依次加到另一列表中
+list11=['fruit','banana','apple','pandan']
+list12=['fruit','apple','club','winboxth']
+for a in list11:
+    if a in list12:
+        print(a,'已经在列表list12中了')
+    else:
+        list12.append(a)
+print(list12)
 
 
-
-
+#遍历列表 for循环对列表中元素依次遍历打印
+#添加append、extend、insert
+#删除remove、pop、del
+#清空列表元素clear
+#复制列表copy()、list()
+#合并列表 +、遍历追加append、extend列表
+#list构造函数
+type1=("apple", "banana", "cherry")
+list12=list(type1)     #将元组更改为列表类型
+print(list12)
+list13=list(("apple12", "banana12", "cherry65"))  #等同于直接把元组放在列表中
+print('list13为：',list13)

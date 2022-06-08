@@ -6,6 +6,7 @@ if matchobject:
     print('matchobject.group():',matchobject.group())
     print('matchobject.group(1):',matchobject.group(1))
     print('matchobject.group(2):',matchobject.group(2))
+    print('matchobject.groups():',matchobject.groups())
 else:
     print('no match!')
 
@@ -27,6 +28,13 @@ for a in findall_object_1:
 else:
     print('for循环遍历结束')
 
+# 3.re.finditer()
+#和 findall 类似，在字符串中找到正则表达式所匹配的所有子串，并把它们作为一个迭代器返回
+#re.finditer(pattern, string, flags=0)
+finditer_object_1=re.finditer(r'\d+','hgf552lll58lll987jjj8')
+for a in finditer_object_1:
+    print(a.group())
+
 
 # 3.re.split()分隔；把字符分割为一个列表并返回成功匹配的列表
 rsplit=re.split(r'\.|\^','dgk^f^^g.gd2ff2g')   #用.或^作为分隔符分隔字符串
@@ -38,9 +46,14 @@ rsub=re.sub(r'hh','bobo','yy want to be hh with together  hh is  one hh',count=2
 print('替换后的字符串rsub:',rsub)
 
 # 5.re.compile()编译；compile 函数用于编译正则表达式，生成一个正则表达式（ Pattern ）对象，然后就可以用编译后的正则表达式去匹配字符串
-test_pattern=re.compile(r'\d{3}')    #编译一个开头匹配3位连续数字的正则表达式
-test_match=test_pattern.match('1258gf54512')   #匹配字符串
+test_pattern_1=re.compile(r'\d{3}')    #编译一个开头匹配3位连续数字的正则表达式
+test_match=test_pattern_1.match('1258gf54512')   #匹配字符串
 print(test_match)                   #匹配出结果
+# print(test_pattern_1.match('1258gf54512'))
+print(re.findall(test_pattern_1,'1258gf54512'))
+
+
+
 
 # 正则表达式实战
 # 1.清除手机号码
@@ -87,15 +100,17 @@ print('数据集中包含“H2O”的数据a3:',a3)
 
 # 5、提取QQ邮箱
 s = ['182872@qq.com','1232@qq.com','12342@qq.com.cn','sAnBe2am@qq.com','sWM@qq.com']    # 设置模拟的数据，其中第2个、第3个和第5个数据都不是需要提取的数据
-pattern_6 = r'[a-zA-Z0-9]{5,}@qq.com$'   # 设置提取的规则，设定是5个字符及以上@qq.com，其他都不是正确的QQ邮箱，其中[a-zA-Z0-9]表示既可以是大小写字母，也可以是数字;[a-zA-Z0-9],匹配任何字母及数字
+pattern_6 = re.compile('[a-zA-Z0-9]{5,}@qq.com$' )  # 设置提取的规则，设定是5个字符及以上@qq.com，其他都不是正确的QQ邮箱，其中[a-zA-Z0-9]表示既可以是大小写字母，也可以是数字;[a-zA-Z0-9],匹配任何字母及数字
 a4=[]
 for data_6 in s:
     if re.findall(pattern_6,data_6)!=[]:
         a4.append(data_6)
 print('是5个字符及以上@qq.com为：a4:',a4)
 
+
+
 # 6.group(0)和groups（）
-pattern_7=re.compile(r'\d[3]-\d{3,8}$')
+pattern_7=re.compile(r'\d+-\d{3,8}$')
 s = ['6-45561','3-154','582-156','3-584']
 a5=[]
 for data_7 in s:
@@ -146,3 +161,32 @@ else:
 # \n, \t, 等.	匹配一个换行符。匹配一个制表符。等
 # \1...\9	匹配第n个分组的内容。
 # \10	匹配第n个分组的内容，如果它经匹配。否则指的是八进制字符码的表达式。
+
+# 正则表达式实例
+# 字符匹配
+# 实例	描述
+# python	匹配 "python".
+# 字符类
+# 实例	描述
+# [Pp]ython	匹配 "Python" 或 "python"
+# rub[ye]	匹配 "ruby" 或 "rube"
+# [aeiou]	匹配中括号内的任意一个字母
+# [0-9]	匹配任何数字。类似于 [0123456789]
+# [a-z]	匹配任何小写字母
+# [A-Z]	匹配任何大写字母
+# [a-zA-Z0-9]	匹配任何字母及数字
+# [^aeiou]	除了aeiou字母以外的所有字符
+# [^0-9]	匹配除了数字外的字符
+# 特殊字符类
+# 实例	描述
+# .	匹配除 "\n" 之外的任何单个字符。要匹配包括 '\n' 在内的任何字符，请使用象 '[.\n]' 的模式。
+# \d	匹配一个数字字符。等价于 [0-9]。
+# \D	匹配一个非数字字符。等价于 [^0-9]。
+# \s	匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ \f\n\r\t\v]。
+# \S	匹配任何非空白字符。等价于 [^ \f\n\r\t\v]。
+# \w	匹配包括下划线的任何单词字符。等价于'[A-Za-z0-9_]'。
+# \W	匹配任何非单词字符。等价于 '[^A-Za-z0-9_]'。
+
+
+
+
