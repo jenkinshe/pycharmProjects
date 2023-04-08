@@ -6,3 +6,4 @@
 # print(new_list)
 
 print(sum([i for i in range(1,101)]))
+#远程直接增加一个内容
